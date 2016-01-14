@@ -1,11 +1,12 @@
 ﻿<Page
-    x:Class="mnis_ver2._0.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:mnis_ver2._0"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    xmlns:Views="using:mnis_ver2._0.Views"
+    x:Class="mnis_ver2._0.MainPage"
+    mc:Ignorable="d" Width="Auto">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
@@ -16,7 +17,7 @@
             <ColumnDefinition Width="1.5*"/>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="0.5*"/>
         </Grid.ColumnDefinitions>
 
         <StackPanel VerticalAlignment="Top" Grid.Column="0" Grid.Row="0">
@@ -45,6 +46,8 @@
             <TextBlock x:Name="textBlock5" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0, 10, 0, 0" TextWrapping="Wrap" Text="Rodzaj filtru:"/>
             <ComboBox x:Name="combo" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10, 10, 0, 0" Width="120"/>
         </StackPanel>
+
+        <Views:Graph Grid.Row="1" Grid.ColumnSpan="4" HorizontalAlignment="Center" Height="100" VerticalAlignment="Center" Width="100"/>
 
     </Grid>
 </Page>

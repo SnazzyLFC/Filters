@@ -10,32 +10,36 @@ namespace mnis_ver2._0.Models
     {
         public Singal(double Pulsation, double Time)
         {
-            this.Pulsation = Pulsation;
-            this.Time = Time;
-            this.Sine = new List<double>();
-            for (int i =0; i<Time; i++)
-            {
-                Sine.Add(Math.Sin(Pulsation * i));
-            }
+            this._pulsation = Pulsation;
+            this._time = Time;
+            this.Sine = Math.Sin(Pulsation * Time);
+            
         }
         /// <summary>
         /// Pulsacja sygnalu.
         /// </summary>
-        private double Pulsation;
-        public double _pulsation
+        private double _pulsation;
+        public double Pulsation
         {
             get
             {
-                return Pulsation;
+                return _pulsation;
             }
         }
         /// <summary>
         /// Czas trwania sygnalu.
         /// </summary>
-        private double Time;
+        private double _time;
+        public double Time
+        {
+            get
+            {
+                return _time;
+            }
+        }
         /// <summary>
         /// Lista wartości sinusa dla poszczególnych wartości czasu (od 0 do Time) pomnożonych przez pulsację.
         /// </summary>
-        public List<double> Sine;
+        public double Sine { get; set; }
     }
 }

@@ -47,7 +47,7 @@
             <ComboBox x:Name="combo" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10, 10, 0, 0" Width="120"/>
         </StackPanel>
 
-        <Views:Graph Grid.Row="1" Grid.ColumnSpan="4" HorizontalAlignment="Center" Height="100" VerticalAlignment="Center" Width="100"/>
+        <Views:Graph Grid.Row="1" Grid.ColumnSpan="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
 
     </Grid>
 </Page>

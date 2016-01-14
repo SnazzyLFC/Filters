@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using WinRTXamlToolkit.Controls.DataVisualization.Charting;
 
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -22,6 +23,12 @@ namespace mnis_ver2._0.Views
         public Graph()
         {
             this.InitializeComponent();
+            List<Models.Singal> Signal = new List<Models.Singal>();
+            for (double i =0; i<10; i+=0.1)
+            {
+                Signal.Add(new Models.Singal(1, i));
+            }
+            (lineGraph.Series[0] as LineSeries).ItemsSource = Signal;
         }
     }
 }

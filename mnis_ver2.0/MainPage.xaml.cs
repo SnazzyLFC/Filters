@@ -22,11 +22,72 @@ namespace mnis_ver2._0
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private ValidationRules.FilterValidationRule Validator;
+        private ViewModels.FilterViewModel FilterVM;
         public MainPage()
         {
             this.InitializeComponent();
             combo.Items.Add("Czebyszew");
             combo.Items.Add("Butterworth");
+            FilterVM = new ViewModels.FilterViewModel();
+            Validator = new ValidationRules.FilterValidationRule();
+            Validator.Error += ErrorHandler; 
+            frequencyPbox.DataContext = frequencyZbox.DataContext = alphaPbox.DataContext = alphaZbox.DataContext = FilterVM;
+        }
+
+        private void OkButton_Click(object sender, RoutedEventArgs e)
+        {
+            List<Models.Singal> Signal = new List<Models.Singal>();
+            for (double i = 0; i < 10; i += 0.1)
+            {
+                Signal.Add(new Models.Singal(1, i));
+            }
+            Models.Czebyszew Filtr = new Models.Czebyszew(1, 10, 12, 1, Signal);
+        }
+
+        private void alphaPbox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string value = (sender as TextBox).Text;
+            Validator.CheckValues(value);           
+        }
+
+        private void alphaZbox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void frequencyPbox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void frequencyZbox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void pulsationBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void amplitudeBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+
+        private void ErrorHandler(string Message)
+        {
+            if(Validator.IsError)
+            {
+                OkButton.IsEnabled = false;
+            }
+            else
+            {
+                OkButton.IsEnabled = true;
+            }
+
         }
     }
 }

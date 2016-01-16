@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Numerics;
-
+using System.ComponentModel.DataAnnotations;
 
 namespace mnis_ver2._0.Models
 {

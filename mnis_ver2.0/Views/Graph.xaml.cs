@@ -18,6 +18,8 @@ using WinRTXamlToolkit.Controls.DataVisualization.Charting;
 
 namespace mnis_ver2._0.Views
 {
+    //TO DO:
+    //zmienić to gówno
     public class Helper
     {
         public double Sine { get; set; }
@@ -27,6 +29,7 @@ namespace mnis_ver2._0.Views
     {
         public Graph()
         {
+            //Tworzenie sinusa
             this.InitializeComponent();
             List<Models.Singal> Signal = new List<Models.Singal>();
             for (double i =0; i<10; i+=0.1)

@@ -5,8 +5,10 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Views="using:mnis_ver2._0.Views"
+    xmlns:ViewModels="using:mnis_ver2._0.ViewModels"
     x:Class="mnis_ver2._0.MainPage"
     mc:Ignorable="d" Width="Auto">
+
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
@@ -20,39 +22,42 @@
             <ColumnDefinition Width="142*"/>
             <ColumnDefinition Width="205*"/>
         </Grid.ColumnDefinitions>
-
+        
         <StackPanel VerticalAlignment="Top" Grid.Column="0" Grid.Row="0" Height="66">
+            <StackPanel.Resources>
+                <ViewModels:FilterViewModel x:Name="MyFilter"/>
+            </StackPanel.Resources>
             <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="10, 10, 0, 0" TextWrapping="Wrap" Text="Maksymalne tłumienie sygnału w paśmie przenoszenia [dB]:" VerticalAlignment="Top"/>
-            <TextBox x:Name="alphaPbox" HorizontalAlignment="Left" Margin="20, 10, 0, 0" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="alphaPbox" HorizontalAlignment="Left" Margin="20, 10, 0, 0" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding AlphaP}" TextChanged="alphaPbox_TextChanged"/>
         </StackPanel>
         <StackPanel VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="0" Height="66">
             <TextBlock x:Name="textBlock" Margin="10, 10, 0, 0" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Minimalne tłumienie sygnału w paśmie zaporowym [dB]:" VerticalAlignment="Top"/>
-            <TextBox x:Name="alphaZbox" Margin="20, 10, 0, 0" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="alphaZbox" Margin="20, 10, 0, 0" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding AlphaZ}" TextChanged="alphaZbox_TextChanged"/>
         </StackPanel>
 
         <StackPanel VerticalAlignment="Top" Grid.Column="1" Grid.Row="0" Height="66">
             <TextBlock x:Name="textBlock2" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0, 10, 0, 0" TextWrapping="Wrap" Text="Krawędź pasma przenoszenia [Hz]:"/>
-            <TextBox x:Name="frequencyPbox" Margin="10, 10, 0, 0" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="frequencyPbox" Margin="10, 10, 0, 0" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding FrequencyP}" TextChanged="frequencyPbox_TextChanged"/>
         </StackPanel>
         <StackPanel VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="0" Height="66">
             <TextBlock x:Name="textBlock3" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0, 10, 0, 0" TextWrapping="Wrap" Text="Krawędź pasma zaporowego [Hz]:"/>
-            <TextBox x:Name="frequencyZbox" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10, 10, 0, 0" Height="23" TextWrapping="Wrap" Width="120"/>
+            <TextBox x:Name="frequencyZbox" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10, 10, 0, 0" Height="23" TextWrapping="Wrap" Width="120" Text="{Binding FrequencyZ}" TextChanged="frequencyZbox_TextChanged"/>
         </StackPanel>
 
         <StackPanel VerticalAlignment="Top" Grid.Column="2" Grid.Row="0" Height="66">
             <TextBlock x:Name="textBlock4" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0, 10, 0, 0" TextWrapping="Wrap" Text="Pulsacja sygnału wejściowego:"/>
-            <TextBox x:Name="pulsationBox" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10, 10, 0, 0" Height="23" TextWrapping="Wrap" Width="120"/>
+            <TextBox x:Name="pulsationBox" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10, 10, 0, 0" Height="23" TextWrapping="Wrap" Width="120" TextChanged="pulsationBox_TextChanged"/>
         </StackPanel>
         <StackPanel VerticalAlignment="Bottom" Grid.Column="2" Grid.Row="0" Height="66">
             <TextBlock x:Name="textBlock7" HorizontalAlignment="Left" Margin="0,10,0,0" TextWrapping="Wrap" Text="Amplituda:" VerticalAlignment="Top"/>
-            <TextBox x:Name="amplitudeBox" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="23"/>
+            <TextBox x:Name="amplitudeBox" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="23" TextChanged="amplitudeBox_TextChanged"/>
         </StackPanel>
         
         <StackPanel VerticalAlignment="Top" Grid.Column="3" Grid.Row="0" Height="66">
             <TextBlock x:Name="textBlock5" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0, 10, 0, 0" TextWrapping="Wrap" Text="Rodzaj filtru:"/>
             <ComboBox x:Name="combo" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10, 10, 0, 0" Width="120"/>
         </StackPanel>
-        <Button x:Name="OkButton" Content="OK" Grid.Column="3" Grid.Row="0" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Bottom" Width="120" Height="40"/>
+        <Button x:Name="OkButton" Content="OK" Grid.Column="3" Grid.Row="0" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Bottom" Width="120" Height="40" Click="OkButton_Click"/>
 
         <Views:Graph Grid.Row="1" Grid.ColumnSpan="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
         <TextBlock x:Name="textBlock6" HorizontalAlignment="Left" Grid.Row="2" Grid.ColumnSpan="2" TextWrapping="Wrap" Text="© Copyright 2016 Sielicka, Czekalski, Kotlarz, Waberski All Rights Reserved" VerticalAlignment="Center" Width="373" Height="13" Grid.Column="3"/>

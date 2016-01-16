@@ -47,8 +47,8 @@ namespace mnis_ver2._0
 
         private void alphaPbox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            string value = (sender as TextBox).Text;
-            Validator.CheckValues(value);           
+            //string value = (sender as TextBox).Text;
+            Validator.CheckValues(sender as TextBox);           
         }
 
         private void alphaZbox_TextChanged(object sender, TextChangedEventArgs e)
@@ -77,15 +77,18 @@ namespace mnis_ver2._0
         }
 
 
-        private void ErrorHandler(string Message)
+        private void ErrorHandler(string Message, TextBox ValueBox)
         {
             if(Validator.IsError)
             {
                 OkButton.IsEnabled = false;
+                ValueBox.BorderBrush = new SolidColorBrush(Windows.UI.Colors.Red);
+                //ValueBox.BorderThickness = Windows.UI.Th;
             }
             else
             {
                 OkButton.IsEnabled = true;
+                ValueBox.BorderBrush = new SolidColorBrush(Windows.UI.Colors.White);
             }
 
         }

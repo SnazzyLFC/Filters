@@ -13,10 +13,11 @@ namespace mnis_ver2._0.ValidationRules
         private int min = 0;
         private int max = 100;
         public bool IsError { get; set; }
-        public delegate void UpdaterHandler(string message);
+        public delegate void UpdaterHandler(string message, TextBox valueBox);
         public event UpdaterHandler Error;
-        public void CheckValues(string value)
+        public void CheckValues(TextBox ValueBox)
         {
+            string value = ValueBox.Text;
             string Message;
             if (value == "")
             {
@@ -45,7 +46,7 @@ namespace mnis_ver2._0.ValidationRules
                 Message = "Podana wartość nie jest liczbą!";
                 IsError = true;
             }
-            Error?.Invoke(Message);
+            Error?.Invoke(Message, ValueBox);
         }
     }
 }

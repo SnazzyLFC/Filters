@@ -27,7 +27,7 @@ namespace mnis_ver2._0.ValidationRules
             try
             {
                 double tempvalue = double.Parse(value);
-                if (tempvalue < 0 || tempvalue > 100)
+                if (tempvalue < min || tempvalue > max)
                 {
                     //BadData: Show statement (bad range of data) and disable ok button
                     Message = "Wartość musi zawierać się między" + min.ToString() + " i" + max.ToString();

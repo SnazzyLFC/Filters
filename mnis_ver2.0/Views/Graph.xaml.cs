@@ -18,6 +18,11 @@ using WinRTXamlToolkit.Controls.DataVisualization.Charting;
 
 namespace mnis_ver2._0.Views
 {
+    public class Helper
+    {
+        public double Sine { get; set; }
+        public double Time { get; set; }
+    }
     public sealed partial class Graph : UserControl
     {
         public Graph()
@@ -29,6 +34,25 @@ namespace mnis_ver2._0.Views
                 Signal.Add(new Models.Singal(1, i));
             }
             (lineGraph.Series[0] as LineSeries).ItemsSource = Signal;
+
+            //CountOutputValue(new Models.Butterworth(10, 20, 1, 10);
+            (lineGraph.Series[1] as LineSeries).ItemsSource = CountOutputValue(new Models.Czebyszew(2.215, 20, 2, 12, Signal));
+        }
+
+        public List<Helper> CountOutputValue(Models.Filter Filter)
+        {
+            List<Helper> Output = new List<Helper>();
+            int j = 0;
+            for (double i=0; i<10; i+=0.1)
+            {
+                double temp = Filter.signal[j].Sine * Filter.transmitancja.Magnitude;
+                Helper temp2 = new Helper();
+                temp2.Sine = temp;
+                temp2.Time = i - Filter.transmitancja.Phase;
+                Output.Add(temp2);
+                j++;
+            }
+            return Output;
         }
     }
 }

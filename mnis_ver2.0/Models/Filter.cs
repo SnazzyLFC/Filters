@@ -21,13 +21,15 @@ namespace mnis_ver2._0.Models
         /// <param name="AlphaZ">Wartość inicjalizująca dla minimalnego tłumienia w paśmie zaporowym [dB]</param>
         /// <param name="FrequencyP">Wartość inicjalizująca dla krawędzmi pasma przenoszenia [Hz]/param>
         /// <param name="FrequencyZ">Wartość inicjalizująca dla krawędzi pasma zaporowego [Hz]</param>
-       
-        public Filter (double AlphaP, double AlphaZ, double FrequencyP, double FrequencyZ)
+        public List<Singal> signal { get; set; }
+        public Singal Signal = new Singal(1, 10);
+        public Filter (double AlphaP, double AlphaZ, double FrequencyP, double FrequencyZ, List<Singal> Signal)
         {
             this.AlphaP = AlphaP;
             this.AlphaZ = AlphaZ;
             this.FrequencyP = FrequencyP;
             this.FrequencyZ = FrequencyZ;
+            this.signal = Signal;
         }
         /// <summary>
         /// Maksymalne tłumienie sygnału w paśmie przenoszenia [dB]
@@ -53,7 +55,7 @@ namespace mnis_ver2._0.Models
         public int Rzad { get; set; }
         public double Omega0 { get; set; }
         public Complex transmitancja = new Complex(0, 0);
-        public double Omega { get; set; }
+        
 
     }
 }

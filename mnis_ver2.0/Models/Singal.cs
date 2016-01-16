@@ -13,7 +13,7 @@ namespace mnis_ver2._0.Models
             this._pulsation = Pulsation;
             this._time = Time;
             this.Sine = Math.Sin(Pulsation * Time);
-            
+            //this.ListOfSinus.Add(Math.Sin(Pulsation * Time));
         }
         /// <summary>
         /// Pulsacja sygnalu.
@@ -41,5 +41,6 @@ namespace mnis_ver2._0.Models
         /// Lista wartości sinusa dla poszczególnych wartości czasu (od 0 do Time) pomnożonych przez pulsację.
         /// </summary>
         public double Sine { get; set; }
+        //public List<double> ListOfSinus = new List<double>();
     }
 }

@@ -10,13 +10,14 @@ namespace mnis_ver2._0.Models
         private static int count_b = 10;
         private static int count_c2= 10;
 
-        public Czebyszew(double a, double b, double c, double d) : base(a, b, c, d)
+        public Czebyszew(double a, double b, double c, double d, List<Singal> e) : base(a, b, c, d, e)
         {
             List<double> _b = new List<double>();
             List<double> _c2 = new List<double>();
             
             double E;
 
+            double Omega = this.Signal.Pulsation;
             OmegaP = 2 * Math.PI * FrequencyP;
             OmegaZ = 2 * Math.PI * FrequencyZ;
             Omega0 = OmegaP;

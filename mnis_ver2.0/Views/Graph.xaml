@@ -13,7 +13,8 @@
     <Grid>
 
         <Charting:Chart x:Name="lineGraph" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch">
-            <Charting:LineSeries Title="Wykres prezentujący działanie filtru" Margin="0" IndependentValuePath="Time" DependentValuePath="Sine" />
+            <Charting:LineSeries Title="Input" Margin="0" IndependentValuePath="Time" DependentValuePath="Sine" />
+            <Charting:LineSeries Title="Output" Margin="0" IndependentValuePath="Time" DependentValuePath="Sine" />
         </Charting:Chart>
 
     </Grid>

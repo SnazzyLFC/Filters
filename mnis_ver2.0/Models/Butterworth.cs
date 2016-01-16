@@ -7,8 +7,9 @@ namespace mnis_ver2._0.Models
     public class Butterworth : Filter
     {
         //Konstruktor wylicza transmitancjê w postaci G(jw)
-        public Butterworth(double a, double b, double c, double d) : base(a, b, c, d)
+        public Butterworth(double a, double b, double c, double d, List<Singal> e) : base(a, b, c, d, e)
         {
+            double Omega = this.Signal.Pulsation;
             OmegaP = 2 * Math.PI * FrequencyP;
             OmegaZ = 2 * Math.PI * FrequencyZ;
             RzadTemp = (Math.Log10(Math.Pow(10, AlphaP / 10) - 1) - Math.Log10(Math.Pow(10, AlphaZ / 10) - 1)) / 2 * Math.Log10(OmegaP / OmegaZ);

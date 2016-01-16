@@ -23,28 +23,30 @@ namespace mnis_ver2._0.ValidationRules
             {
                 IsError = true;
                 Message = "Nie podano żadnej wartości";
-                return;
             }
-            try
+            else
             {
-                double tempvalue = double.Parse(value);
-                if (tempvalue < min || tempvalue > max)
+                try
                 {
-                    //BadData: Show statement (bad range of data) and disable ok button
-                    Message = "Wartość musi zawierać się między" + min.ToString() + " i" + max.ToString();
+                    double tempvalue = double.Parse(value);
+                    if (tempvalue < min || tempvalue > max)
+                    {
+                        //BadData: Show statement (bad range of data) and disable ok button
+                        Message = "Wartość musi zawierać się między " + min.ToString() + " i " + max.ToString();
+                        IsError = true;
+                    }
+                    else
+                    {
+                        IsError = false;
+                        Message = "";
+                    }
+                }
+                catch
+                {
+                    //BadData: Show statement (it is not a number) and disable ok button
+                    Message = "Podana wartość nie jest liczbą!";
                     IsError = true;
                 }
-                else
-                {
-                    IsError = false;
-                    Message = "";
-                }
-            }
-            catch
-            {
-                //BadData: Show statement (it is not a number) and disable ok button
-                Message = "Podana wartość nie jest liczbą!";
-                IsError = true;
             }
             Error?.Invoke(Message, ValueBox);
         }

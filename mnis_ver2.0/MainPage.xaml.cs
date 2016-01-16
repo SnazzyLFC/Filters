@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -29,9 +30,9 @@ namespace mnis_ver2._0
             this.InitializeComponent();
             combo.Items.Add("Czebyszew");
             combo.Items.Add("Butterworth");
-            FilterVM = new ViewModels.FilterViewModel();
             Validator = new ValidationRules.FilterValidationRule();
-            Validator.Error += ErrorHandler; 
+            Validator.Error += ErrorHandler;
+            FilterVM = new ViewModels.FilterViewModel(); 
             frequencyPbox.DataContext = frequencyZbox.DataContext = alphaPbox.DataContext = alphaZbox.DataContext = FilterVM;
         }
 
@@ -47,50 +48,105 @@ namespace mnis_ver2._0
 
         private void alphaPbox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //string value = (sender as TextBox).Text;
             Validator.CheckValues(sender as TextBox);           
         }
 
         private void alphaZbox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            Validator.CheckValues(sender as TextBox);
         }
 
         private void frequencyPbox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            Validator.CheckValues(sender as TextBox);
         }
 
         private void frequencyZbox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            Validator.CheckValues(sender as TextBox);
         }
 
         private void pulsationBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            
         }
 
         private void amplitudeBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+           
         }
 
 
         private void ErrorHandler(string Message, TextBox ValueBox)
         {
-            if(Validator.IsError)
+            StackPanel ParentControl = (StackPanel)ValueBox.Parent;
+            TextBlock ErrorMark = new TextBlock();
+            ErrorMark.Text = "!";
+            ErrorMark.Foreground = new SolidColorBrush(Windows.UI.Colors.Red);
+            ErrorMark.FontWeight = Windows.UI.Text.FontWeights.Bold;
+            ErrorMark.FontSize = 39;
+            ErrorMark.Height = 23;
+            ErrorMark.Width = 15;
+            ErrorMark.Margin = new Thickness(20, 0, 0, 0);
+            ErrorMark.Name = "ErrorMark";
+            //ErrorMark.GotFocus += new RoutedEventHandler(ShowMessage);
+            ErrorMark.PointerEntered += (s, e) =>
             {
-                OkButton.IsEnabled = false;
-                ValueBox.BorderBrush = new SolidColorBrush(Windows.UI.Colors.Red);
-                //ValueBox.BorderThickness = Windows.UI.Th;
+                var msg = new MessageDialog(Message);
+                msg.ShowAsync();
+                ValueBox.Focus(FocusState.Programmatic);
+                ValueBox.Select(0, ValueBox.Text.Length);
+            };
+            if (Validator.IsError)
+            {
+                bool flag = true;
+                foreach(var child in ParentControl.Children)
+                {
+                    try
+                    {
+                        var Child = (TextBlock)child;
+                        if (Child.Name == "ErrorMark")
+                        {
+                            flag = false;
+                        }
+                    }
+                    catch
+                    {
+                        continue;
+                    }
+                }
+                if (flag)
+                {
+                    ParentControl.Children.Add(ErrorMark);
+                }
+                if (OkButton.IsEnabled)
+                {
+                    OkButton.IsEnabled = false;
+                    ValueBox.BorderBrush = new SolidColorBrush(Windows.UI.Colors.Red);
+
+                }
             }
             else
             {
                 OkButton.IsEnabled = true;
                 ValueBox.BorderBrush = new SolidColorBrush(Windows.UI.Colors.White);
+                foreach (var child in ParentControl.Children)
+                {
+                    try
+                    {
+                        var Child = (TextBlock)child;
+                        if (Child.Name == "ErrorMark")
+                        {
+                            ParentControl.Children.Remove(child);
+                        }
+                    }
+                    catch
+                    {
+                        continue;
+                    }
+                }
             }
-
         }
+
     }
 }

@@ -43,7 +43,7 @@ namespace mnis_ver2._0
             {
                 Signal.Add(new Models.Singal(1, i));
             }
-            Models.Czebyszew Filtr = new Models.Czebyszew(1, 10, 12, 1, Signal);
+            Models.Czebyszew Filtr = new Models.Czebyszew(FilterVM.AlphaP, FilterVM.AlphaZ, FilterVM.FrequencyP, FilterVM.FrequencyZ, Signal);
         }
 
         private void alphaPbox_TextChanged(object sender, TextChangedEventArgs e)

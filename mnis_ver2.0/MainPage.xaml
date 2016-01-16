@@ -29,27 +29,27 @@
             </StackPanel.Resources>
             <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="10, 10, 0, 0" TextWrapping="Wrap" Text="Maksymalne tłumienie sygnału w paśmie przenoszenia [dB]:" VerticalAlignment="Top"/>
             <StackPanel Orientation="Horizontal">
-                <TextBox x:Name="alphaPbox" HorizontalAlignment="Left" Margin="20, 10, 0, 0" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding AlphaP}" TextChanged="alphaPbox_TextChanged"/>
+                <TextBox x:Name="alphaPbox" HorizontalAlignment="Left" Margin="20, 10, 0, 0" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding AlphaP, Mode=TwoWay}" TextChanged="alphaPbox_TextChanged"/>
             </StackPanel>
             
         </StackPanel>
         <StackPanel VerticalAlignment="Bottom" Grid.Column="0" Grid.Row="0" Height="66">
             <TextBlock x:Name="textBlock" Margin="10, 10, 0, 0" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Minimalne tłumienie sygnału w paśmie zaporowym [dB]:" VerticalAlignment="Top"/>
             <StackPanel Orientation="Horizontal">
-                <TextBox x:Name="alphaZbox" Margin="20, 10, 0, 0" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding AlphaZ}" TextChanged="alphaZbox_TextChanged"/>
+                <TextBox x:Name="alphaZbox" Margin="20, 10, 0, 0" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding AlphaZ, Mode=TwoWay}" TextChanged="alphaZbox_TextChanged"/>
             </StackPanel>
         </StackPanel>
 
         <StackPanel VerticalAlignment="Top" Grid.Column="1" Grid.Row="0" Height="66">
             <TextBlock x:Name="textBlock2" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0, 10, 0, 0" TextWrapping="Wrap" Text="Krawędź pasma przenoszenia [Hz]:"/>
             <StackPanel Orientation="Horizontal">
-                <TextBox x:Name="frequencyPbox" Margin="10, 10, 0, 0" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding FrequencyP}" TextChanged="frequencyPbox_TextChanged"/>
+                <TextBox x:Name="frequencyPbox" Margin="10, 10, 0, 0" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding FrequencyP, Mode=TwoWay}" TextChanged="frequencyPbox_TextChanged"/>
             </StackPanel>
         </StackPanel>
         <StackPanel VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="0" Height="66">
             <TextBlock x:Name="textBlock3" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0, 10, 0, 0" TextWrapping="Wrap" Text="Krawędź pasma zaporowego [Hz]:"/>
             <StackPanel Orientation="Horizontal">
-                <TextBox x:Name="frequencyZbox" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10, 10, 0, 0" Height="23" TextWrapping="Wrap" Width="120" Text="{Binding FrequencyZ}" TextChanged="frequencyZbox_TextChanged"/>
+                <TextBox x:Name="frequencyZbox" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10, 10, 0, 0" Height="23" TextWrapping="Wrap" Width="120" Text="{Binding FrequencyZ, Mode=TwoWay}" TextChanged="frequencyZbox_TextChanged"/>
             </StackPanel>
         </StackPanel>
 

@@ -25,6 +25,8 @@ namespace mnis_ver2._0
         public MainPage()
         {
             this.InitializeComponent();
+            combo.Items.Add("Czebyszew");
+            combo.Items.Add("Butterworth");
         }
     }
 }

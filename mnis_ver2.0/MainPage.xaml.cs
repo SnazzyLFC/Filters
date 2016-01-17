@@ -154,5 +154,9 @@ namespace mnis_ver2._0
             }
         }
 
+        private void Help_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Views.HelpPage));
+        }
     }
 }

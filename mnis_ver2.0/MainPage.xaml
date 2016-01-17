@@ -14,7 +14,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="1.25*" />
             <RowDefinition Height="5*" />
-            <RowDefinition Height="0.25*"/>
+            <RowDefinition Height="0.5*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
@@ -39,7 +39,6 @@
             <TextBox Header="Krawędź pasma zaporowego [Hz]:" x:Name="frequencyZbox" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="{Binding FrequencyZ, Mode=TwoWay}" TextChanged="frequencyZbox_TextChanged"/>
         </StackPanel>
 
-
         <StackPanel VerticalAlignment="Top" Grid.Column="2" Grid.Row="0" Height="66">
             <TextBox Header="Pulsacja sygnału wejściowego:"  x:Name="pulsationBox" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" TextWrapping="Wrap" TextChanged="pulsationBox_TextChanged"/>
         </StackPanel>
@@ -51,10 +50,13 @@
         <StackPanel VerticalAlignment="Top" Grid.Column="3" Grid.Row="0" Height="66">
             <ComboBox Header="Rodzaj filtru:" x:Name="combo" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
         </StackPanel>
-        <Button x:Name="OkButton" Content="OK" Grid.Column="3" Grid.Row="0" HorizontalAlignment="Stretch" Margin="10,10,0,0" VerticalAlignment="Bottom" Width="120" Height="40" Click="OkButton_Click"/>
+        
+        <Button x:Name="OkButton" Content="OK" Grid.Column="3" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Width="120" Height="40" Click="OkButton_Click"/>
 
         <Views:Graph x:Name="myGraph" Grid.ColumnSpan="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,120,0,3" Grid.RowSpan="2"/>
+        
         <TextBlock x:Name="textBlock6" HorizontalAlignment="Left" Grid.Row="2" Grid.ColumnSpan="2" TextWrapping="Wrap" Text="© Copyright 2016 Sielicka, Czekalski, Kotlarz, Waberski All Rights Reserved" VerticalAlignment="Center" Width="373" Height="13" Grid.Column="3"/>
 
+        <Button x:Name="Help" Grid.Column="0" Grid.Row="2" Click="Help_Click"  Content="Pomoc"/>
     </Grid>
 </Page>

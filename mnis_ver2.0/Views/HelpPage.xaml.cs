@@ -25,9 +25,9 @@ namespace mnis_ver2._0.Views
         public HelpPage()
         {
             this.InitializeComponent();
-            webViewControl.Navigate(new Uri("http://lfc.pl"));
+            webViewControl.Navigate(new Uri("http://filters-documentation.prv.pl"));
         }
-
+        //TO DO: ZABEZPIECZYĆ METODY GOBACK I GOFORWARD!!!!!!!
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             webViewControl.GoBack();

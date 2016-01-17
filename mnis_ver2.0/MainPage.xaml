@@ -68,7 +68,7 @@
         </StackPanel>
         <Button x:Name="OkButton" Content="OK" Grid.Column="3" Grid.Row="0" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Bottom" Width="120" Height="40" Click="OkButton_Click"/>
 
-        <Views:Graph Grid.Row="1" Grid.ColumnSpan="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <Views:Graph x:Name="myGraph" Grid.Row="1" Grid.ColumnSpan="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
         <TextBlock x:Name="textBlock6" HorizontalAlignment="Left" Grid.Row="2" Grid.ColumnSpan="2" TextWrapping="Wrap" Text="© Copyright 2016 Sielicka, Czekalski, Kotlarz, Waberski All Rights Reserved" VerticalAlignment="Center" Width="373" Height="13" Grid.Column="3"/>
 
     </Grid>

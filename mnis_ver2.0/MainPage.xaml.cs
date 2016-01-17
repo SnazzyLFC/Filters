@@ -43,7 +43,13 @@ namespace mnis_ver2._0
             {
                 Signal.Add(new Models.Singal(1, i));
             }
-            Models.Czebyszew Filtr = new Models.Czebyszew(FilterVM.AlphaP, FilterVM.AlphaZ, FilterVM.FrequencyP, FilterVM.FrequencyZ, Signal);
+            //REFLEKSJA!
+            string TypeName = "mnis_ver2._0.Models." + combo.SelectedValue;
+            Type T = Type.GetType(TypeName);
+            var obj = Activator.CreateInstance(T, FilterVM.AlphaP, FilterVM.AlphaZ, FilterVM.FrequencyP, FilterVM.FrequencyZ, Signal);
+            //I to tyle refleksji :D
+            myGraph.Draw((Models.Filter)obj);
+
         }
 
         private void alphaPbox_TextChanged(object sender, TextChangedEventArgs e)

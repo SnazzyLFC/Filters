@@ -31,18 +31,10 @@ namespace mnis_ver2._0.Views
         {
             //Tworzenie sinusa
             this.InitializeComponent();
-            List<Models.Singal> Signal = new List<Models.Singal>();
-            for (double i =0; i<10; i+=0.1)
-            {
-                Signal.Add(new Models.Singal(1, i));
-            }
-            (lineGraph.Series[0] as LineSeries).ItemsSource = Signal;
 
-            //CountOutputValue(new Models.Butterworth(10, 20, 1, 10);
-            (lineGraph.Series[1] as LineSeries).ItemsSource = CountOutputValue(new Models.Czebyszew(2.215, 20, 2, 12, Signal));
         }
 
-        public List<Helper> CountOutputValue(Models.Filter Filter)
+        private List<Helper> CountOutputValue(Models.Filter Filter)
         {
             List<Helper> Output = new List<Helper>();
             int j = 0;
@@ -56,6 +48,16 @@ namespace mnis_ver2._0.Views
                 j++;
             }
             return Output;
+        }
+        public void Draw(Models.Filter FilterModel)
+        {
+            List<Models.Singal> Signal = new List<Models.Singal>();
+            for (double i = 0; i < 10; i += 0.1)
+            {
+                Signal.Add(new Models.Singal(1, i));
+            }
+            (lineGraph.Series[0] as LineSeries).ItemsSource = Signal;
+            (lineGraph.Series[1] as LineSeries).ItemsSource = CountOutputValue(FilterModel);
         }
     }
 }

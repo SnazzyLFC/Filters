@@ -8,6 +8,22 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="5*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel HorizontalAlignment="Center" Grid.Column="1" Grid.Row="0" Orientation="Horizontal" >
+            <Button Margin="0, 0, 25, 0" Content="Wstecz" Width="100" Click="Button_Click"></Button>
+            <Button Margin="25, 0, 0, 0" Content="Dalej" Width="100" Click="Button_Click_1"></Button>
+        </StackPanel> 
+        
+        <Button Grid.Column="0" HorizontalAlignment="Center" Content="Wróć do programu" Click="Button_Click_2" />
 
+        <WebView x:Name="webViewControl" Grid.Row="1" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
     </Grid>
 </Page>

@@ -25,6 +25,22 @@ namespace mnis_ver2._0.Views
         public HelpPage()
         {
             this.InitializeComponent();
+            webViewControl.Navigate(new Uri("http://lfc.pl"));
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            webViewControl.GoBack();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            webViewControl.GoForward();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage));
         }
     }
 }

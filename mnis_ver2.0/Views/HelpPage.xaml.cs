@@ -26,6 +26,8 @@ namespace mnis_ver2._0.Views
         {
             this.InitializeComponent();
             webViewControl.Navigate(new Uri("http://filters-documentation.prv.pl"));
+
+            
         }
         //TO DO: ZABEZPIECZYĆ METODY GOBACK I GOFORWARD!!!!!!!
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -41,6 +43,16 @@ namespace mnis_ver2._0.Views
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(MainPage));
+        }
+
+        private void menuRectangle_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            menuRectangle.Fill = new SolidColorBrush(Windows.UI.Colors.Purple);
+        }
+
+        private void menuRectangle_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+
         }
     }
 }

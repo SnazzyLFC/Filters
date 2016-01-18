@@ -10,7 +10,7 @@ namespace mnis_ver2._0.ViewModels
     class FilterViewModel
     {
         //private ValidationRules.FilterValidationRule _validator = new ValidationRules.FilterValidationRule();
-        private double _alphaZ;
+        //private double _alphaZ;
         public double AlphaZ { get; set; }
         public double AlphaP { get; set; }
         public double FrequencyP { get; set; }

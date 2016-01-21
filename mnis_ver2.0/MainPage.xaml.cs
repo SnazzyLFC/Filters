@@ -25,6 +25,7 @@ namespace mnis_ver2._0
     {
         private ValidationRules.FilterValidationRule FilterValidator;
         private ValidationRules.SignalValidationRule SignalValidator;
+        private ValidationRules.Validator Validator;
         private ViewModels.FilterViewModel FilterVM;
         private ViewModels.SignalViewModel SignalVM;
         public MainPage()
@@ -34,12 +35,13 @@ namespace mnis_ver2._0
             combo.Items.Add("Butterworth");
             FilterValidator = new ValidationRules.FilterValidationRule();
             SignalValidator = new ValidationRules.SignalValidationRule();
+            Validator = new ValidationRules.Validator();
             FilterValidator.Error += ErrorHandler;
             SignalValidator.Error += ErrorHandler;
             FilterVM = new ViewModels.FilterViewModel();
             SignalVM = new ViewModels.SignalViewModel();
             frequencyPbox.DataContext = frequencyZbox.DataContext = alphaPbox.DataContext = alphaZbox.DataContext = FilterVM;
-            amplitudeCombo.DataContext = SignalVM;
+            amplitudeCombo.DataContext = pulsationBox.DataContext= SignalVM;
             for (int i = -5; i < 6; i++)
             {
                 if (i!=0)
@@ -88,6 +90,7 @@ namespace mnis_ver2._0
 
         private void pulsationBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            SignalValidator.CheckValues(sender as TextBox);
             
         }
 
@@ -117,7 +120,7 @@ namespace mnis_ver2._0
                 ValueBox.Focus(FocusState.Programmatic);
                 ValueBox.Select(0, ValueBox.Text.Length);
             };
-            if (FilterValidator.IsError)
+            if (FilterValidator.IsError || SignalValidator.IsError)
             {
                 bool flag = true;
                 foreach(var child in ParentControl.Children)

@@ -8,11 +8,10 @@ using Windows.UI.Xaml.Controls;
 
 namespace mnis_ver2._0.ValidationRules
 {
-    public class FilterValidationRule
+    public class FilterValidationRule : Validator
     {
         private int min = 0;
         private int max = 100;
-        public bool IsError { get; set; }
         public delegate void UpdaterHandler(string message, TextBox valueBox);
         public event UpdaterHandler Error;
         public void CheckValues(TextBox ValueBox)

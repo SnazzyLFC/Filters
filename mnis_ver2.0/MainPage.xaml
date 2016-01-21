@@ -40,7 +40,7 @@
         </StackPanel>
 
         <StackPanel VerticalAlignment="Top" Grid.Column="2" Grid.Row="0" Height="66">
-            <TextBox Header="Pulsacja sygnału wejściowego:"  x:Name="pulsationBox" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" TextChanged="pulsationBox_TextChanged" Width="250" Height="60"/>
+            <TextBox Header="Pulsacja sygnału wejściowego:"  x:Name="pulsationBox" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" TextChanged="pulsationBox_TextChanged" Width="250" Height="60" Text="{Binding Pulsation, Mode=TwoWay}"/>
         </StackPanel>
 
         <StackPanel VerticalAlignment="Bottom" Grid.Column="2" Grid.Row="0" Height="66">

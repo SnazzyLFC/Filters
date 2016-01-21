@@ -7,11 +7,10 @@ using Windows.UI.Xaml.Controls;
 
 namespace mnis_ver2._0.ValidationRules
 {
-    class SignalValidationRule
+    class SignalValidationRule : Validator
     {
         private int _min = 0;
         private int _max = 20;
-        public bool IsError { get; set; }
         public delegate void UpdaterHandler(string message, TextBox valueBox);
         public event UpdaterHandler Error;
         public void CheckValues(TextBox ValueBox)

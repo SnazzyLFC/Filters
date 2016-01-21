@@ -11,9 +11,11 @@ namespace mnis_ver2._0.ViewModels
         public SignalViewModel()
         {
             Amplitude = 1;
+            Pulsation = 1;
 
         }
         public int Amplitude { get; set; }
+        public double Pulsation { get; set; }
     }
 }
 

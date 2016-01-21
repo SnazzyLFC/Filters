@@ -23,7 +23,8 @@ namespace mnis_ver2._0
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private ValidationRules.FilterValidationRule Validator;
+        private ValidationRules.FilterValidationRule FilterValidator;
+        private ValidationRules.SignalValidationRule SignalValidator;
         private ViewModels.FilterViewModel FilterVM;
         private ViewModels.SignalViewModel SignalVM;
         public MainPage()
@@ -31,8 +32,10 @@ namespace mnis_ver2._0
             this.InitializeComponent();
             combo.Items.Add("Czebyszew");
             combo.Items.Add("Butterworth");
-            Validator = new ValidationRules.FilterValidationRule();
-            Validator.Error += ErrorHandler;
+            FilterValidator = new ValidationRules.FilterValidationRule();
+            SignalValidator = new ValidationRules.SignalValidationRule();
+            FilterValidator.Error += ErrorHandler;
+            SignalValidator.Error += ErrorHandler;
             FilterVM = new ViewModels.FilterViewModel();
             SignalVM = new ViewModels.SignalViewModel();
             frequencyPbox.DataContext = frequencyZbox.DataContext = alphaPbox.DataContext = alphaZbox.DataContext = FilterVM;
@@ -65,22 +68,22 @@ namespace mnis_ver2._0
 
         private void alphaPbox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            Validator.CheckValues(sender as TextBox);           
+            FilterValidator.CheckValues(sender as TextBox);           
         }
 
         private void alphaZbox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            Validator.CheckValues(sender as TextBox);
+            FilterValidator.CheckValues(sender as TextBox);
         }
 
         private void frequencyPbox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            Validator.CheckValues(sender as TextBox);
+            FilterValidator.CheckValues(sender as TextBox);
         }
 
         private void frequencyZbox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            Validator.CheckValues(sender as TextBox);
+            FilterValidator.CheckValues(sender as TextBox);
         }
 
         private void pulsationBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -114,7 +117,7 @@ namespace mnis_ver2._0
                 ValueBox.Focus(FocusState.Programmatic);
                 ValueBox.Select(0, ValueBox.Text.Length);
             };
-            if (Validator.IsError)
+            if (FilterValidator.IsError)
             {
                 bool flag = true;
                 foreach(var child in ParentControl.Children)

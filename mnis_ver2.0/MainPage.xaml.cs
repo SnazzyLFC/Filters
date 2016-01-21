@@ -25,6 +25,7 @@ namespace mnis_ver2._0
     {
         private ValidationRules.FilterValidationRule Validator;
         private ViewModels.FilterViewModel FilterVM;
+        private ViewModels.SignalViewModel SignalVM;
         public MainPage()
         {
             this.InitializeComponent();
@@ -32,8 +33,18 @@ namespace mnis_ver2._0
             combo.Items.Add("Butterworth");
             Validator = new ValidationRules.FilterValidationRule();
             Validator.Error += ErrorHandler;
-            FilterVM = new ViewModels.FilterViewModel(); 
+            FilterVM = new ViewModels.FilterViewModel();
+            SignalVM = new ViewModels.SignalViewModel();
             frequencyPbox.DataContext = frequencyZbox.DataContext = alphaPbox.DataContext = alphaZbox.DataContext = FilterVM;
+            amplitudeCombo.DataContext = SignalVM;
+            for (int i = -5; i < 6; i++)
+            {
+                if (i!=0)
+                {
+                    amplitudeCombo.Items.Add(i);
+                }
+
+            }
         }
 
         private void OkButton_Click(object sender, RoutedEventArgs e)
@@ -47,7 +58,7 @@ namespace mnis_ver2._0
             string TypeName = "mnis_ver2._0.Models." + combo.SelectedValue;
             Type T = Type.GetType(TypeName);
             var obj = Activator.CreateInstance(T, FilterVM.AlphaP, FilterVM.AlphaZ, FilterVM.FrequencyP, FilterVM.FrequencyZ, Signal);
-            //I to tyle refleksji :D
+            //I to tyle refleksji
             myGraph.Draw((Models.Filter)obj);
 
         }
@@ -77,10 +88,10 @@ namespace mnis_ver2._0
             
         }
 
-        private void amplitudeBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
+        //private void amplitudeBox_TextChanged(object sender, TextChangedEventArgs e)
+        //{
            
-        }
+        //}
 
 
         private void ErrorHandler(string Message, TextBox ValueBox)

@@ -8,9 +8,10 @@ namespace mnis_ver2._0.Models
 {
     public class Singal
     {
-        public Singal(double Pulsation, double Time)
+        public Singal(double Pulsation, double Time) //,int Amplitude)
         {
             this._pulsation = Pulsation;
+            //this._amplitude = Amplitude;
             this._time = Time;
             this.Sine = Math.Sin(Pulsation * Time);
             //this.ListOfSinus.Add(Math.Sin(Pulsation * Time));
@@ -37,10 +38,17 @@ namespace mnis_ver2._0.Models
                 return _time;
             }
         }
-        /// <summary>
-        /// Lista wartości sinusa dla poszczególnych wartości czasu (od 0 do Time) pomnożonych przez pulsację.
-        /// </summary>
+
         public double Sine { get; set; }
         //public List<double> ListOfSinus = new List<double>();
+
+        private int _amplitude;
+        public int Amplitude
+        {
+            get
+            {
+                return _amplitude;
+            }
+        }
     }
 }

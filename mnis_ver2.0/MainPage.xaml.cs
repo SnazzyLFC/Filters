@@ -41,17 +41,18 @@ namespace mnis_ver2._0
             FilterVM = new ViewModels.FilterViewModel();
             SignalVM = new ViewModels.SignalViewModel();
             frequencyPbox.DataContext = frequencyZbox.DataContext = alphaPbox.DataContext = alphaZbox.DataContext = FilterVM;
-            amplitudeCombo.DataContext = pulsationBox.DataContext= SignalVM;
+            amplitudeCombo.DataContext = pulsationBox.DataContext = SignalVM;
             for (int i = -5; i < 6; i++)
             {
-                if (i!=0)
+                if (i != 0)
                 {
                     amplitudeCombo.Items.Add(i);
                 }
 
             }
+            amplitudeCombo.SelectedIndex = 5;
+            combo.SelectedIndex = 0;
         }
-
         private void OkButton_Click(object sender, RoutedEventArgs e)
         {
             List<Models.Singal> Signal = new List<Models.Singal>();

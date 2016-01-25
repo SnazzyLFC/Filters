@@ -58,7 +58,7 @@ namespace mnis_ver2._0
             List<Models.Singal> Signal = new List<Models.Singal>();
             for (double i = 0; i < 10; i += 0.1)
             {
-                Signal.Add(new Models.Singal(1, i));
+                Signal.Add(new Models.Singal(SignalVM.Amplitude, SignalVM.Pulsation, i));
             }
             //REFLEKSJA!
             string TypeName = "mnis_ver2._0.Models." + combo.SelectedValue;

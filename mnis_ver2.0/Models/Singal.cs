@@ -8,12 +8,13 @@ namespace mnis_ver2._0.Models
 {
     public class Singal
     {
-        public Singal(double Pulsation, double Time) //,int Amplitude)
+        public Singal(int Amplitude, double Pulsation, double Time) //,int Amplitude)
         {
             this._pulsation = Pulsation;
+            this._amplitude = Amplitude;
             //this._amplitude = Amplitude;
             this._time = Time;
-            this.Sine = Math.Sin(Pulsation * Time);
+            this.Sine = Amplitude * Math.Sin(Pulsation * Time);
             //this.ListOfSinus.Add(Math.Sin(Pulsation * Time));
         }
         /// <summary>

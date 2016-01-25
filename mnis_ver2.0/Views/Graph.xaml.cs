@@ -53,12 +53,12 @@ namespace mnis_ver2._0.Views
         }
         public void Draw(Models.Filter FilterModel)
         {
-            List<Models.Singal> Signal = new List<Models.Singal>();
-            for (double i = 0; i < 10; i += 0.1)
-            {
-                Signal.Add(new Models.Singal(1, i));
-            }
-            (lineGraph.Series[0] as LineSeries).ItemsSource = Signal;
+            //List<Models.Singal> Signal = new List<Models.Singal>();
+            //for (double i = 0; i < 10; i += 0.1)
+            //{
+            //    Signal.Add(new Models.Singal(1, i));
+            //}
+            (lineGraph.Series[0] as LineSeries).ItemsSource = FilterModel.signal;
             (lineGraph.Series[1] as LineSeries).ItemsSource = CountOutputValue(FilterModel);
 
             var msg = new MessageDialog("Omega0 = " + FilterModel.Omega0);

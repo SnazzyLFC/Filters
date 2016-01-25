@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -27,17 +28,34 @@ namespace mnis_ver2._0.Views
             this.InitializeComponent();
             webViewControl.Navigate(new Uri("http://filters-documentation.prv.pl"));
 
-            
+
         }
         //TO DO: ZABEZPIECZYĆ METODY GOBACK I GOFORWARD!!!!!!!
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            webViewControl.GoBack();
+            try
+            {
+                webViewControl.GoBack();
+            }
+            catch
+            {
+                var msg = new MessageDialog("O NIE!");
+                msg.ShowAsync();
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            webViewControl.GoForward();
+            try
+            {
+                webViewControl.GoForward();
+            }
+            
+            catch
+            {
+                var msg = new MessageDialog("Jeszcze nie umiem tego zrobić :(");
+                msg.ShowAsync();
+            }
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
@@ -54,5 +72,8 @@ namespace mnis_ver2._0.Views
         {
 
         }
+
+
     }
+
 }

@@ -12,12 +12,16 @@ namespace mnis_ver2._0.ValidationRules
     {
         private int min = 0;
         private int max = 100;
+        private double alphaP;
+        private double alphaZ;
         public delegate void UpdaterHandler(string message, TextBox valueBox);
         public event UpdaterHandler Error;
 
         public void CheckValues(TextBox ValueBox)
         {
             string value = ValueBox.Text;
+            string name = ValueBox.Name;
+
             string Message;
             if (value == "")
             {
@@ -37,8 +41,22 @@ namespace mnis_ver2._0.ValidationRules
                     }
                     else
                     {
+                        switch (name)
+                        {
+                            case "alphaPbox":
+                                alphaP = tempvalue;
+                                break;
+                            case "alphaZbox":
+                                alphaZ = tempvalue;
+                                break;
+                        }
                         IsError = false;
                         Message = "";
+                        if (alphaZ>alphaP)
+                        {
+                            IsError = true;
+                            Message = "Minimalne tłumienie nie może być mniejsze od maksymalnego";
+                        }
                     }
                 }
                 catch

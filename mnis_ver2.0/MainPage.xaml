@@ -45,7 +45,7 @@
         </StackPanel>
 
         <StackPanel VerticalAlignment="Bottom" Grid.Column="2" Grid.Row="0" Height="66">
-            <!-- <TextBox Header="Amplituda:" x:Name="amplitudeBox" HorizontalAlignment="Stretch" TextWrapping="Wrap" VerticalAlignment="Stretch" TextChanged="amplitudeBox_TextChanged"/> -->
+            <!--  <TextBox Header="Amplituda:" x:Name="amplitudeBox" HorizontalAlignment="Stretch" TextWrapping="Wrap" VerticalAlignment="Stretch" TextChanged="amplitudeBox_TextChanged"/> -->
             <ComboBox x:Name="amplitudeCombo"  Header="Amplituda:" SelectedItem="{Binding Amplitude, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="250" Height="60"/>
         </StackPanel>
 

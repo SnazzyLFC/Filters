@@ -65,7 +65,6 @@ namespace mnis_ver2._0
             var obj = Activator.CreateInstance(T, FilterVM.AlphaP, FilterVM.AlphaZ, FilterVM.FrequencyP, FilterVM.FrequencyZ, Signal);
             //I to tyle refleksji
             myGraph.Draw((Models.Filter)obj);
-
         }
 
         private void alphaPbox_TextChanged(object sender, TextChangedEventArgs e)

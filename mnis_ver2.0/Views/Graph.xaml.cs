@@ -20,16 +20,17 @@ namespace mnis_ver2._0.Views
 {
     //TO DO:
     //zmienić to gówno
-    public class Helper
-    {
-        public double Sine { get; set; }
-        public double Time { get; set; }
-    }
+
     public sealed partial class Graph : UserControl
     {
+        public class Helper
+        {
+            public double Sine { get; set; }
+            public double Time { get; set; }
+        }
         public Graph()
         {
-            //Tworzenie sinusa
+
             this.InitializeComponent();
 
         }

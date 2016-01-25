@@ -14,6 +14,7 @@ namespace mnis_ver2._0.ValidationRules
         private int max = 100;
         public delegate void UpdaterHandler(string message, TextBox valueBox);
         public event UpdaterHandler Error;
+
         public void CheckValues(TextBox ValueBox)
         {
             string value = ValueBox.Text;

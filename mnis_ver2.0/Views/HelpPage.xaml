@@ -17,12 +17,13 @@
             <ColumnDefinition Width="4*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <WebView x:Name="webViewControl" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-
         <StackPanel x:Name="menuStack" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="0" Orientation="Horizontal" >
             <Button Margin="0, 0, 25, 0" Content="Wstecz" Width="100" Click="Button_Click"></Button>
             <Button Margin="25, 0, 0, 0" Content="Dalej" Width="100" Click="Button_Click_1"></Button>
         </StackPanel>
+        <WebView x:Name="webViewControl" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
+
 
         <Button x:Name="backButton" Grid.Column="0" HorizontalAlignment="Center" Content="Wróć do programu" Click="Button_Click_2" />
 

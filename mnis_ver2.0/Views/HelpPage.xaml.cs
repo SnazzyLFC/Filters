@@ -63,16 +63,6 @@ namespace mnis_ver2._0.Views
             Frame.Navigate(typeof(MainPage));
         }
 
-        private void menuRectangle_PointerEntered(object sender, PointerRoutedEventArgs e)
-        {
-            menuRectangle.Fill = new SolidColorBrush(Windows.UI.Colors.Purple);
-        }
-
-        private void menuRectangle_PointerExited(object sender, PointerRoutedEventArgs e)
-        {
-
-        }
-
 
     }
 

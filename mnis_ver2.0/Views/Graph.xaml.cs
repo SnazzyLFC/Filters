@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -59,6 +60,11 @@ namespace mnis_ver2._0.Views
             }
             (lineGraph.Series[0] as LineSeries).ItemsSource = Signal;
             (lineGraph.Series[1] as LineSeries).ItemsSource = CountOutputValue(FilterModel);
+
+            var msg = new MessageDialog("Omega0 = " + FilterModel.Omega0);
+            msg.ShowAsync();
         }
+
+
     }
 }

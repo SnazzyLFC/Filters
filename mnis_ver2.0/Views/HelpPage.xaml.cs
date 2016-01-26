@@ -26,7 +26,7 @@ namespace mnis_ver2._0.Views
         public HelpPage()
         {
             this.InitializeComponent();
-            webViewControl.Navigate(new Uri("http://filters-documentation.prv.pl"));
+            webViewControl.Navigate(new Uri("http://filters-documentation.azurewebsites.net/"));
 
 
         }
@@ -39,8 +39,7 @@ namespace mnis_ver2._0.Views
             }
             catch
             {
-                var msg = new MessageDialog("O NIE!");
-                msg.ShowAsync();
+
             }
         }
 
@@ -53,8 +52,7 @@ namespace mnis_ver2._0.Views
             
             catch
             {
-                var msg = new MessageDialog("Jeszcze nie umiem tego zrobić :(");
-                msg.ShowAsync();
+
             }
         }
 

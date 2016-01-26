@@ -135,6 +135,7 @@
     </AppxManifest>
     <None Include="mnis_ver2.0_TemporaryKey.pfx" />
     <None Include="packages.config" />
+    <None Include="UML.cd" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Logo.scale-100.png" />

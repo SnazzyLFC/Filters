@@ -59,7 +59,7 @@
             <ComboBox Header="Rodzaj filtru:" x:Name="combo" VerticalAlignment="Center" HorizontalAlignment="Left" Width="250" Height="60"/>
         </StackPanel>
 
-        <Button x:Name="OkButton" Content="OK" Grid.Column="3" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Height="40" Click="OkButton_Click" Margin="-3,100,0,2" Width="150"/>
+        <Button x:Name="OkButton" Content="OK" Grid.Column="3" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="40" Click="OkButton_Click" Width="150"/>
 
         <Views:Graph x:Name="myGraph" Grid.ColumnSpan="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="1"/>
 

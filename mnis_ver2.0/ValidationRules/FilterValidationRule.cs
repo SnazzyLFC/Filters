@@ -52,11 +52,11 @@ namespace mnis_ver2._0.ValidationRules
                         }
                         IsError = false;
                         Message = "";
-                        if (alphaZ>alphaP)
-                        {
-                            IsError = true;
-                            Message = "Minimalne tłumienie nie może być mniejsze od maksymalnego";
-                        }
+                        //if (alphaZ>alphaP)
+                        //{
+                        //    IsError = true;
+                        //    Message = "Minimalne tłumienie nie może być mniejsze od maksymalnego";
+                        //}
                     }
                 }
                 catch

@@ -12,9 +12,9 @@ namespace mnis_ver2._0.Models
             double Omega = this.Signal.Pulsation;
             OmegaP = 2 * Math.PI * FrequencyP;
             OmegaZ = 2 * Math.PI * FrequencyZ;
-            RzadTemp = (Math.Log10(Math.Pow(10, AlphaP / 10) - 1) - Math.Log10(Math.Pow(10, AlphaZ / 10) - 1)) / 2 * Math.Log10(OmegaP / OmegaZ);
+            RzadTemp = (Math.Log10(Math.Pow(10, 0.1 * AlphaP) - 1) - Math.Log10(Math.Pow(10, 0.1 * AlphaZ) - 1)) / (2 * Math.Log10(OmegaP / OmegaZ));
             Rzad = (int)Math.Ceiling(RzadTemp);
-            Omega0=OmegaP/Math.Pow(( (Math.Pow(10,AlphaP/10)-1) ),1/(2*Rzad));
+            Omega0 = OmegaP / (Math.Pow((Math.Pow(10, 0.1 * AlphaP) - 1), 1 / (2 * Rzad)));
             //Omega z sygna³u !
             Complex p = new Complex(0, Omega / Omega0);
 
